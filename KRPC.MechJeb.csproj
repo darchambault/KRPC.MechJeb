@@ -90,10 +90,9 @@
     <Compile Include="Util\MathFunctions.cs" />
     <Compile Include="Util\Vector6.cs" />
     <Compile Include="AirplaneAutopilot.cs" />
-    <Compile Include="AscentAutopilot.cs" />
-    <Compile Include="AscentClassic.cs" />
-    <Compile Include="AscentGT.cs" />
-    <Compile Include="AscentPVG.cs" />
+    <None Include="AscentAutopilot.cs.disabled" />
+    <None Include="AscentClassic.cs.disabled" />
+    <None Include="AscentPVG.cs.disabled" />
     <Compile Include="ComputerModule.cs" />
     <Compile Include="DeployableController.cs" />
     <Compile Include="DockingAutopilot.cs" />

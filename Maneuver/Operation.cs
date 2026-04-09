@@ -28,14 +28,14 @@ namespace KRPC.MechJeb.Maneuver {
 
 		// Fields and methods
 		private static MethodInfo errorMessage;
-		private static MethodInfo makeNodesImpl;
+		protected internal static MethodInfo makeNodesImpl;
 
 		// Instance objects
 		protected internal object instance;
 
 		internal static void InitType(Type type) {
-			errorMessage = type.GetCheckedMethod("getErrorMessage");
-			makeNodesImpl = type.GetCheckedMethod("MakeNodesImpl");
+			errorMessage = type.GetCheckedMethod("GetErrorMessage");
+			//makeNodesImpl = type.GetCheckedMethod("MakeNodesImpl");
 		}
 
 		protected internal virtual void InitInstance(object instance) {
@@ -121,7 +121,7 @@ namespace KRPC.MechJeb.Maneuver {
 
 		protected static FieldInfo GetTimeSelectorField(Type type) {
 			// Need to do it this way because MechJeb does not have a separate TimedOperation class. Instead, the field is duplicated where needed.
-			return type.GetCheckedField("timeSelector", BindingFlags.NonPublic | BindingFlags.Instance);
+			return type.GetCheckedField("_timeSelector", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
 		}
 
 		protected void InitTimeSelector(FieldInfo timeSelector) {

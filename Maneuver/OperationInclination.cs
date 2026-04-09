@@ -20,7 +20,8 @@ namespace KRPC.MechJeb.Maneuver {
 		private object newInc;
 
 		internal static new void InitType(Type type) {
-			newIncField = type.GetCheckedField("newInc");
+			newIncField = type.GetCheckedField("NewInc");
+			makeNodesImpl = type.GetCheckedMethod("MakeNodesImpl", BindingFlags.NonPublic | BindingFlags.Instance);
 			timeSelector = GetTimeSelectorField(type);
 		}
 
