@@ -6,18 +6,160 @@ using KRPC.MechJeb.Util;
 using KRPC.Service.Attributes;
 
 namespace KRPC.MechJeb {
-	internal static class AscentGuidance {
-		internal new const string MechJebType = "MuMech.MechJebModuleAscentGuidance";
+	internal static class AscentSettings {
+		internal new const string MechJebType = "MuMech.MechJebModuleAscentSettings";
 
 		// Fields and methods
-		internal static FieldInfo desiredInclination;
+
+		// AscentMenu
 		internal static FieldInfo launchingToPlane;
 		internal static FieldInfo launchingToRendezvous;
+		internal static FieldInfo launchingToMatchLan;
+		internal static FieldInfo launchingToLan;
+		internal static FieldInfo ascentType;
+		internal static FieldInfo desiredOrbitAltitude;
+		internal static FieldInfo desiredApoapsis;
+		internal static FieldInfo desiredAttachAlt;
+		internal static FieldInfo desiredFPA;
+		internal static FieldInfo desiredAttachAltFixed;
+		internal static FieldInfo desiredInclination;
+		internal static FieldInfo warpCountDown;
+		internal static FieldInfo launchPhaseAngle;
+		internal static FieldInfo launchLANDifference;
+		internal static FieldInfo overrideWarpToPlane;
+
+		internal static FieldInfo optimizeStage;
+		internal static FieldInfo attachAltFlag;
+		internal static FieldInfo limitQaEnabled;
+
+		// AscentSettingsMenu
+		internal static FieldInfo forceRoll;
+		internal static FieldInfo verticalRoll;
+		internal static FieldInfo turnRoll;
+		internal static FieldInfo rollAltitude;
+		internal static FieldInfo limitAoA;
+		internal static FieldInfo maxAoA;
+		internal static FieldInfo aoALimitFadeoutPressure;
+		internal static FieldInfo correctiveSteering;
+		internal static FieldInfo correctiveSteeringGain;
+		internal static FieldInfo autostage;
+		internal static FieldInfo autodeploySolarPanels;
+		internal static FieldInfo autoDeployAntennas;
+		internal static FieldInfo skipCircularization;
+
+		internal static FieldInfo limitingAoA;
+
+		// AscentClassicPathMenu
+		internal static FieldInfo autoPath;
+		internal static FieldInfo autoTurnPerc;
+		internal static FieldInfo autoTurnSpdFactor;
+		internal static FieldInfo turnStartAltitude;
+		internal static FieldInfo turnStartVelocity;
+		internal static FieldInfo turnEndAltitude;
+		internal static FieldInfo turnEndAngle;
+		internal static FieldInfo turnShapeExponent;
+
+		internal static FieldInfo autoTurnStartAltitude;
+		internal static FieldInfo autoTurnStartVelocity;
+		internal static FieldInfo autoTurnEndAltitude;
+
+		// AscentPVGSettingsMenu
+		internal static FieldInfo optimizeStageInternal;
+		internal static FieldInfo unguidedStagesInternal;
+		internal static FieldInfo coastBeforeFlag;
+		internal static FieldInfo coastStageInternal;
+		internal static FieldInfo fixedCoastLength;
+		internal static FieldInfo spinupStageInternal;
+		internal static FieldInfo spinupAngularVelocity;
+		internal static FieldInfo spinupLeadTime;
+		internal static FieldInfo pitchStartVelocity;
+		internal static FieldInfo pitchRate;
+		internal static FieldInfo dynamicPressureTrigger;
+		internal static FieldInfo stagingTrigger;
+		internal static FieldInfo limitQa;
+
+		internal static FieldInfo minDeltaV;
+		internal static FieldInfo lastStage;
+		internal static FieldInfo optimizeStageFlag;
+		internal static FieldInfo unguidedStagesFlag;
+		internal static FieldInfo coastStageFlag;
+		internal static FieldInfo fixedCoast;
+		internal static FieldInfo spinupStageFlag;
+		internal static FieldInfo stagingTriggerFlag;
 
 		internal static void InitType(Type type) {
-			desiredInclination = type.GetField("desiredInclination");
-			launchingToPlane = type.GetField("launchingToPlane");
-			launchingToRendezvous = type.GetField("launchingToRendezvous");
+			launchingToPlane = type.GetField("LaunchingToPlane");
+			launchingToRendezvous = type.GetField("LaunchingToRendezvous");
+			launchingToMatchLan = type.GetField("LaunchingToMatchLan");
+			launchingToLan = type.GetField("LaunchingToLan");
+			ascentType = type.GetField("AscentType");
+			desiredOrbitAltitude = type.GetField("DesiredOrbitAltitude");
+			desiredApoapsis = type.GetField("DesiredApoapsis");
+			desiredAttachAlt = type.GetField("DesiredAttachAlt");
+			desiredFPA = type.GetField("DesiredFPA");
+			desiredAttachAltFixed = type.GetField("DesiredAttachAltFixed");
+			desiredInclination = type.GetField("DesiredInclination");
+			warpCountDown = type.GetField("WarpCountDown");
+			launchPhaseAngle = type.GetField("LaunchPhaseAngle");
+			launchLANDifference = type.GetField("LaunchLANDifference");
+			overrideWarpToPlane = type.GetField("PverrideWarpToPlane");
+
+			optimizeStage = type.GetField("OptimizeStage");
+			attachAltFlag = type.GetField("AttachAltFlag");
+			limitQaEnabled = type.GetField("LimitQaEnabled");
+
+			forceRoll = type.GetField("ForceRoll");
+			verticalRoll = type.GetField("VerticalRoll");
+			turnRoll = type.GetField("TurnRoll");
+			rollAltitude = type.GetField("RollAltitude");
+			limitAoA = type.GetField("LimitAoA");
+			maxAoA = type.GetField("MaxAoA");
+			aoALimitFadeoutPressure = type.GetField("AOALimitFadeoutPressure");
+			correctiveSteering = type.GetField("CorrectiveSteering");
+			correctiveSteeringGain = type.GetField("CorrectiveSteeringGain");
+			autostage = type.GetField("Autostage");
+			autodeploySolarPanels = type.GetField("AutodeploySolarPanels");
+			autoDeployAntennas = type.GetField("AutoDeployAntennas");
+			skipCircularization = type.GetField("SkipCircularization");
+
+			limitingAoA = type.GetField("LimitingAoA");
+
+			autoPath = type.GetField("AutoPath");
+			autoTurnPerc = type.GetField("AutoTurnPerc");
+			autoTurnSpdFactor = type.GetField("AutoTurnSpdFactor");
+			turnStartAltitude = type.GetField("TurnStartAltitude");
+			turnStartVelocity = type.GetField("TurnStartVelocity");
+			turnEndAltitude = type.GetField("TurnEndAltitude");
+			turnEndAngle = type.GetField("TurnEndAngle");
+			turnShapeExponent = type.GetField("TurnShapeExponent");
+
+			autoTurnStartAltitude = type.GetField("AutoTurnStartAltitude");
+			autoTurnStartVelocity = type.GetField("AutoTurnStartVelocity");
+			autoTurnEndAltitude = type.GetField("AutoTurnEndAltitude");
+
+			optimizeStageInternal = type.GetField("OptimizeStageInternal");
+			unguidedStagesInternal = type.GetField("UnguidedStagesInternal");
+			coastBeforeFlag = type.GetField("CoastBeforeFlag");
+			coastStageInternal = type.GetField("CoastStageInternal");
+			fixedCoastLength = type.GetField("FixedCoastLength");
+			spinupStageInternal = type.GetField("SpinupStageInternal");
+			spinupAngularVelocity = type.GetField("SpinupAngularVelocity");
+			spinupLeadTime = type.GetField("SpinupLeadTime");
+			pitchStartVelocity = type.GetField("PitchStartVelocity");
+			pitchRate = type.GetField("PitchRate");
+			dynamicPressureTrigger = type.GetField("DynamicPressureTrigger");
+			stagingTrigger = type.GetField("StagingTrigger");
+			limitQa = type.GetField("LimitQa");
+
+			minDeltaV = type.GetField("MinDeltaV");
+			lastStage = type.GetField("LastStage");
+			optimizeStageFlag = type.GetField("OptimizeStageFlag");
+			unguidedStagesFlag = type.GetField("UnguidedStagesFlag");
+			coastStageFlag = type.GetField("CoastStageFlag");
+			fixedCoast = type.GetField("FixedCoast");
+			spinupStageFlag = type.GetField("SpinupStageFlag");
+			stagingTriggerFlag = type.GetField("StagingTriggerFlag");
+
 		}
 	}
 
@@ -29,126 +171,94 @@ namespace KRPC.MechJeb {
 	/// </remarks>
 	[KRPCClass(Service = "MechJeb")]
 	public class AscentAutopilot : KRPCComputerModule {
-		internal new const string MechJebType = "MuMech.MechJebModuleAscentAutopilot";
+		internal new const string MechJebType = "MuMech.MechJebModuleAscentMenu";
+
+
 
 		// Fields and methods
-		private static FieldInfo status;
-		private static PropertyInfo ascentPathIdx;
-		private static FieldInfo desiredOrbitAltitudeField;
-		private static FieldInfo autoThrottle;
-		private static FieldInfo correctiveSteering;
-		private static FieldInfo correctiveSteeringGainField;
-		private static FieldInfo forceRoll;
-		private static FieldInfo verticalRollField;
-		private static FieldInfo turnRollField;
-		private static FieldInfo autodeploySolarPanels;
-		private static FieldInfo autoDeployAntennas;
-		private static FieldInfo skipCircularization;
-		private static PropertyInfo autostage;
-		private static FieldInfo limitAoA;
-		private static FieldInfo maxAoAField;
-		private static FieldInfo aoALimitFadeoutPressureField;
-		private static FieldInfo launchPhaseAngleField;
-		private static FieldInfo launchLANDifferenceField;
-		private static FieldInfo warpCountDownField;
 
+		/*
+		private static FieldInfo status;
 		private static FieldInfo timedLaunch;
+		private static FieldInfo launchTime;
+		private static FieldInfo currentMaxAoA;
+		private static FieldInfo launchStarted;
+		private static FieldInfo tMinus;
+		private static FieldInfo mode;
 		private static MethodInfo startCountdown;
+		*/
 
 		// Instance objects
 		private object guiInstance;
 
-		private object desiredOrbitAltitude;
-		private object correctiveSteeringGain;
-		private object verticalRoll;
-		private object turnRoll;
-		private object maxAoA;
-		private object aoALimitFadeoutPressure;
-		private object launchPhaseAngle;
-		private object launchLANDifference;
-		private object warpCountDown;
-
 		internal static new void InitType(Type type) {
-			status = type.GetCheckedField("status");
-			ascentPathIdx = type.GetCheckedProperty("ascentPathIdxPublic");
-			desiredOrbitAltitudeField = type.GetCheckedField("desiredOrbitAltitude");
-			autoThrottle = type.GetCheckedField("autoThrottle");
-			correctiveSteering = type.GetCheckedField("correctiveSteering");
-			correctiveSteeringGainField = type.GetCheckedField("correctiveSteeringGain");
-			forceRoll = type.GetCheckedField("forceRoll");
-			verticalRollField = type.GetCheckedField("verticalRoll");
-			turnRollField = type.GetCheckedField("turnRoll");
-			autodeploySolarPanels = type.GetCheckedField("autodeploySolarPanels");
-			autoDeployAntennas = type.GetCheckedField("autoDeployAntennas");
-			skipCircularization = type.GetCheckedField("skipCircularization");
-			autostage = type.GetCheckedProperty("autostage");
-			limitAoA = type.GetCheckedField("limitAoA");
-			maxAoAField = type.GetCheckedField("maxAoA");
-			aoALimitFadeoutPressureField = type.GetCheckedField("aoALimitFadeoutPressure");
-			launchPhaseAngleField = type.GetCheckedField("launchPhaseAngle");
-			launchLANDifferenceField = type.GetCheckedField("launchLANDifference");
-			warpCountDownField = type.GetCheckedField("warpCountDown");
-
-			timedLaunch = type.GetCheckedField("timedLaunch");
+			/*
+			status = type.GetCheckedField("Status");
+			timedLaunch = type.GetCheckedField("TimedLaunch");
+			launchTime = type.GetCheckedField("_launchTime", BindingFlags.NonPublic);
+			currentMaxAoA = type.GetCheckedField("CurrentMaxAoA");
+			launchStarted = type.GetCheckedField("_launchStarted", BindingFlags.NonPublic);
+			tMinus = type.GetCheckedField("TMinus");
+			mode = type.GetCheckedField("_mode", BindingFlags.NonPublic);
 			startCountdown = type.GetCheckedMethod("StartCountdown");
+			*/
 		}
 
 		protected internal override void InitInstance(object instance) {
 			base.InitInstance(instance);
-			this.guiInstance = MechJeb.GetComputerModule("AscentGuidance");
+			this.guiInstance = MechJeb.GetComputerModule("AscentMenu");
 
-			this.desiredOrbitAltitude = desiredOrbitAltitudeField.GetInstanceValue(instance);
-			this.correctiveSteeringGain = correctiveSteeringGainField.GetInstanceValue(instance);
-			this.verticalRoll = verticalRollField.GetInstanceValue(instance);
-			this.turnRoll = turnRollField.GetInstanceValue(instance);
-			this.maxAoA = maxAoAField.GetInstanceValue(instance);
-			this.aoALimitFadeoutPressure = aoALimitFadeoutPressureField.GetInstanceValue(instance);
-			this.launchPhaseAngle = launchPhaseAngleField.GetInstanceValue(instance);
-			this.launchLANDifference = launchLANDifferenceField.GetInstanceValue(instance);
-			this.warpCountDown = warpCountDownField.GetInstanceValue(instance);
+			
+			//this.timedLaunch = timedLaunch.GetInstanceValue(instance);
+			//this.launchTime = launchTime.GetInstanceValue(instance);
+			//this.currentMaxAoA = currentMaxAoA.GetInstanceValue(instance);
+			//this.launchStarted = launchStarted.GetInstanceValue(instance);
+			//this.tMinus = tMinus.GetInstanceValue(instance);
+			//this.mode = mode.GetInstanceValue(instance);
+			//this.startCountdown = startCountdown.GetInstanceValue(instance);
 
-			this.AscentPathClassic.InitInstance(MechJeb.GetComputerModule("AscentClassic"));
-			this.AscentPathGT.InitInstance(MechJeb.GetComputerModule("AscentGT"));
-			this.AscentPathPVG.InitInstance(MechJeb.GetComputerModule("AscentPVG"));
+			//this.AscentPathClassic.InitInstance(MechJeb.GetComputerModule("AscentClassic"));
+			//this.AscentPathPVG.InitInstance(MechJeb.GetComputerModule("AscentPVG"));
 
 			// Retrieve the current path index set in mechjeb and enable the path representing that index.
 			// It fixes the issue with AscentAutopilot reporting empty status due to a disabled path.
-			if(instance != null)
-				this.AscentPathIndex = this.AscentPathIndex;
+			//if(instance != null)
+				//this.AscentMode = this.AscentMode;
+
 		}
 
 		public AscentAutopilot() {
-			this.AscentPathClassic = new AscentClassic();
-			this.AscentPathGT = new AscentGT();
-			this.AscentPathPVG = new AscentPVG();
+			//this.AscentPathClassic = new AscentClassic();
+			//this.AscentPathPVG = new AscentPVG();
 		}
 
+/*
 		/// <summary>
 		/// The autopilot status; it depends on the selected ascent path.
 		/// </summary>
 		[KRPCProperty]
 		public string Status => status.GetValue(this.instance).ToString();
+*/
 
 		/// <summary>
-		/// The selected ascent path.
+		/// The selected ascent type.
 		/// 
 		/// 0 = <see cref="AscentClassic" /> (Classic Ascent Profile)
 		/// 
-		/// 1 = <see cref="AscentGT" /> (Stock-style GravityTurn)
-		/// 
-		/// 2 = <see cref="AscentPVG" /> (Primer Vector Guidance (RSS/RO))
+		/// 1 = <see cref="AscentPVG" /> (Primer Vector Guidance (RSS/RO))
 		/// </summary>
 		[KRPCProperty]
-		public int AscentPathIndex {
-			get => (int)ascentPathIdx.GetValue(this.instance, null);
+		public int AscentType {	
+			get => (int)AscentSettings.ascentType.GetValue(this.guiInstance);
 			set {
-				if(value < 0 || value > 2)
+				if(value < 0 || value > 1)
 					return;
 
-				ascentPathIdx.SetValue(this.instance, value, null);
+				AscentSettings.ascentType.SetValue(this.guiInstance, value);
 			}
 		}
 
+/*
 		/// <summary>
 		/// Get Classic Ascent Profile settings.
 		/// </summary>
@@ -156,34 +266,30 @@ namespace KRPC.MechJeb {
 		public AscentClassic AscentPathClassic { get; }
 
 		/// <summary>
-		/// Get Stock-style GravityTurn profile settings.
-		/// </summary>
-		[KRPCProperty]
-		public AscentGT AscentPathGT { get; }
-
-		/// <summary>
 		/// Get Powered Explicit Guidance (RSS/RO) profile settings.
 		/// </summary>
 		[KRPCProperty]
 		public AscentPVG AscentPathPVG { get; }
+*/
 
 		/// <summary>
 		/// The desired altitude in kilometres for the final circular orbit.
 		/// </summary>
 		[KRPCProperty]
 		public double DesiredOrbitAltitude {
-			get => EditableDouble.Get(this.desiredOrbitAltitude);
-			set => EditableDouble.Set(this.desiredOrbitAltitude, value);
+			get => EditableDouble.Get(AscentSettings.desiredOrbitAltitude);
+			set => EditableDouble.Set(AscentSettings.desiredOrbitAltitude, value);
 		}
 
+/*
 		/// <summary>
 		/// The desired inclination in degrees for the final circular orbit.
 		/// </summary>
 		[KRPCProperty]
 		public double DesiredInclination {
 			// We need to get desiredInclinationGUI value here because it may change over time.
-			get => EditableDouble.Get(AscentGuidance.desiredInclination, this.guiInstance);
-			set => EditableDouble.Set(AscentGuidance.desiredInclination, this.guiInstance, value);
+			get => EditableDouble.Get(AscentSettings.desiredInclination, this.guiInstance);
+			set => EditableDouble.Set(AscentSettings.desiredInclination, this.guiInstance, value);
 		}
 
 		/// <remarks>Equivalent to <see cref="MechJeb.ThrustController" />.</remarks>
@@ -334,9 +440,9 @@ namespace KRPC.MechJeb {
 			get {
 				if(!(bool)timedLaunch.GetValue(this.instance))
 					return AscentLaunchMode.Normal;
-				if((bool)AscentGuidance.launchingToRendezvous.GetValue(this.guiInstance))
+				if((bool)AscentSettings.launchingToRendezvous.GetValue(this.guiInstance))
 					return AscentLaunchMode.Rendezvous;
-				if((bool)AscentGuidance.launchingToPlane.GetValue(this.guiInstance))
+				if((bool)AscentSettings.launchingToPlane.GetValue(this.guiInstance))
 					return AscentLaunchMode.TargetPlane;
 				return AscentLaunchMode.Unknown;
 			}
@@ -350,8 +456,8 @@ namespace KRPC.MechJeb {
 			if(this.LaunchMode == AscentLaunchMode.Unknown)
 				throw new InvalidOperationException("There is an unknown timed launch ongoing which can't be aborted");
 
-			AscentGuidance.launchingToPlane.SetValue(this.guiInstance, false);
-			AscentGuidance.launchingToRendezvous.SetValue(this.guiInstance, false);
+			AscentSettings.launchingToPlane.SetValue(this.guiInstance, false);
+			AscentSettings.launchingToRendezvous.SetValue(this.guiInstance, false);
 			timedLaunch.SetValue(this.instance, false);
 		}
 
@@ -371,7 +477,7 @@ namespace KRPC.MechJeb {
 
 			this.AbortTimedLaunch();
 			try {
-				AscentGuidance.launchingToRendezvous.SetValue(this.guiInstance, true);
+				AscentSettings.launchingToRendezvous.SetValue(this.guiInstance, true);
 				this.StartCountdown(LaunchTiming.TimeToPhaseAngle(this.LaunchPhaseAngle));
 			}
 			catch(Exception) {
@@ -391,7 +497,7 @@ namespace KRPC.MechJeb {
 			this.AbortTimedLaunch();
 			try {
 				Orbit target = MechJeb.TargetController.InternalTargetOrbit;
-				AscentGuidance.launchingToPlane.SetValue(this.guiInstance, true);
+				AscentSettings.launchingToPlane.SetValue(this.guiInstance, true);
 
 				Tuple<double, double> item = MathFunctions.MinimumTimeToPlane(target.LAN - this.LaunchLANDifference, target.inclination);
 				this.StartCountdown(item.Item1);
@@ -425,7 +531,10 @@ namespace KRPC.MechJeb {
 			/// </summary>
 			Unknown = 99
 		}
+*/
 	}
 
+/*
 	public abstract class AscentBase : ComputerModule { }
+*/
 }

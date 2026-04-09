@@ -1,3 +1,4 @@
+/*
 using System;
 using System.Reflection;
 
@@ -138,3 +139,4 @@ namespace KRPC.MechJeb {
 		public double AutoTurnEndAltitude => EditableDouble.Get(autoTurnEndAltitude);
 	}
 }
+*/
