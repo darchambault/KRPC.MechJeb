@@ -77,7 +77,7 @@ namespace KRPC.MechJeb {
 
 			// MechJeb found, create module instances
 			modules.Add("AirplaneAutopilot", new AirplaneAutopilot());
-			//modules.Add("AscentMenu", new AscentAutopilot());
+			modules.Add("AscentSettings", new AscentAutopilot());
 			modules.Add("DockingAutopilot", new DockingAutopilot());
 			modules.Add("LandingAutopilot", new LandingAutopilot());
 			modules.Add("RendezvousAutopilot", new RendezvousAutopilot());
@@ -164,8 +164,8 @@ namespace KRPC.MechJeb {
 		[KRPCProperty]
 		public static AirplaneAutopilot AirplaneAutopilot => (AirplaneAutopilot)modules["AirplaneAutopilot"];
 
-		//[KRPCProperty]
-		//public static AscentAutopilot AscentAutopilot => (AscentAutopilot)modules["AscentAutopilot"];
+		[KRPCProperty]
+		public static AscentAutopilot AscentAutopilot => (AscentAutopilot)modules["AscentSettings"];
 
 		[KRPCProperty]
 		public static DockingAutopilot DockingAutopilot => (DockingAutopilot)modules["DockingAutopilot"];

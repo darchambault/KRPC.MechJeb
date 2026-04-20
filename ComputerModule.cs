@@ -51,6 +51,20 @@ namespace KRPC.MechJeb {
 			onFixedUpdate.Invoke(this.instance, null);
 		}
 
+		internal static bool IsEnabled(object moduleInstance) {
+			return moduleInstance != null && (bool)enabled.GetValue(moduleInstance, null);
+		}
+
+		internal static void SetEnabled(object moduleInstance, object caller, bool value) {
+			if(moduleInstance == null)
+				return;
+			object usersObj = usersField.GetValue(moduleInstance);
+			if(value)
+				UserPool.usersAdd.Invoke(usersObj, new object[] { caller });
+			else
+				UserPool.usersRemove.Invoke(usersObj, new object[] { caller });
+		}
+
 		private static class UserPool {
 			internal const string MechJebType = "MuMech.UserPool";
 

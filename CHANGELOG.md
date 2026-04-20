@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Refactored **AscentAutopilot** for MechJeb 2.15.x; rebuilt against the new `MechJebModuleAscentSettings` / `MechJebModuleAscentBaseAutopilot` split
+- `DesiredLan`, `OverrideWarpToPlane`, `RollAltitude`, `LimitingAoA`, `LimitQa`, `LimitQaEnabled`, `CurrentMaxAoA` to **AscentAutopilot**
+- `DesiredAttachAltFixed`, `DesiredFPA`, `CoastBeforeFlag`, `MinDeltaV`, `LastStage`, `OptimizeStage`, `OptimizeStageFlag`, `CoastStage`, `CoastStageFlag`, `SpinupStage`, `SpinupStageFlag`, `SpinupAngularVelocity`, `SpinupLeadTime`, `UnguidedStages`, `UnguidedStagesFlag` to **AscentAutopilot** (PVG)
+- `LaunchToLan(double)` and `LaunchToMatchLan()` methods to **AscentAutopilot**, plus `Lan` and `MatchLan` variants on `AscentLaunchMode`
+### Changed
+- **AscentAutopilot** is now flat — all path-specific settings live directly on the autopilot instead of on `AscentPathClassic` / `AscentPathPVG` sub-properties
+- `AscentType` is now a two-valued selector (`0` Classic, `1` PVG); the gravity-turn path was removed in MechJeb 2.15
+### Removed
+- `AscentPathClassic` and `AscentPathPVG` sub-properties on **AscentAutopilot** — their fields now live on **AscentAutopilot** directly
 
 ## [0.7.1] - 2024-12-23
 ### Changed
