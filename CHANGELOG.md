@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - `DesiredLan`, `OverrideWarpToPlane`, `RollAltitude`, `LimitingAoA`, `LimitQa`, `LimitQaEnabled`, `CurrentMaxAoA` to **AscentAutopilot**
 - `DesiredAttachAltFixed`, `DesiredFPA`, `CoastBeforeFlag`, `MinDeltaV`, `LastStage`, `OptimizeStage`, `OptimizeStageFlag`, `CoastStage`, `CoastStageFlag`, `SpinupStage`, `SpinupStageFlag`, `SpinupAngularVelocity`, `SpinupLeadTime`, `UnguidedStages`, `UnguidedStagesFlag` to **AscentAutopilot** (PVG)
 - `LaunchToLan(double)` and `LaunchToMatchLan()` methods to **AscentAutopilot**, plus `Lan` and `MatchLan` variants on `AscentLaunchMode`
+- `Roll` property to **SmartASS** exposing the roll target (MechJeb's `rol` field) used by the orbital (`Prograde`, `Retrograde`, `NormalPlus`, `NormalMinus`, `RadialPlus`, `RadialMinus`), target (`TargetPlus`, `TargetMinus`, `RelativePlus`, `RelativeMinus`, `ParallelPlus`, `ParallelMinus`), kill rotation (`KillRot`) and node (`Node`) modes when `ForceRoll` is enabled
 ### Changed
 - **AscentAutopilot** is now flat — all path-specific settings live directly on the autopilot instead of on `AscentPathClassic` / `AscentPathPVG` sub-properties
 - `AscentType` is now a two-valued selector (`0` Classic, `1` PVG); the gravity-turn path was removed in MechJeb 2.15
