@@ -21,7 +21,6 @@ namespace KRPC.MechJeb.Maneuver {
 
 		internal static new void InitType(Type type) {
 			interceptIntervalField = type.GetCheckedField("InterceptInterval");
-			makeNodesImpl = type.GetCheckedMethod("MakeNodesImpl", BindingFlags.NonPublic | BindingFlags.Instance);
 			timeSelector = GetTimeSelectorField(type);
 		}
 

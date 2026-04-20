@@ -28,18 +28,19 @@ namespace KRPC.MechJeb.Maneuver {
 
 		// Fields and methods
 		private static MethodInfo errorMessage;
-		protected internal static MethodInfo makeNodesImpl;
+		protected internal MethodInfo makeNodesImpl;
 
 		// Instance objects
 		protected internal object instance;
 
 		internal static void InitType(Type type) {
 			errorMessage = type.GetCheckedMethod("GetErrorMessage");
-			//makeNodesImpl = type.GetCheckedMethod("MakeNodesImpl");
 		}
 
 		protected internal virtual void InitInstance(object instance) {
 			this.instance = instance;
+			if (instance != null)
+           		this.makeNodesImpl = instance.GetType().GetCheckedMethod("MakeNodesImpl", BindingFlags.NonPublic | BindingFlags.Instance);
 		}
 
 		/// <summary>
@@ -78,7 +79,7 @@ namespace KRPC.MechJeb.Maneuver {
 				MechJeb.TargetController.OnFixedUpdate();
 
 				Vessel vessel = FlightGlobals.ActiveVessel;
-				IEnumerable<object> parameters = (IEnumerable<object>)makeNodesImpl.Invoke(this.instance, new object[] { vessel.orbit, Planetarium.GetUniversalTime(), MechJeb.TargetController.instance });
+				IEnumerable<object> parameters = (IEnumerable<object>)this.makeNodesImpl.Invoke(this.instance, new object[] { vessel.orbit, Planetarium.GetUniversalTime(), MechJeb.TargetController.instance });
 				// A warning may be stored in ErrorMessage property (if it's an error, we will throw an exception)
 
 				//vessel.RemoveAllManeuverNodes(); // This implementation supports only one active ManeuverOperation; removing the other maneuver nodess to prevent bugs

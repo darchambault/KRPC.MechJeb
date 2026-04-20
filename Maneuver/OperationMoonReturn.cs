@@ -19,7 +19,6 @@ namespace KRPC.MechJeb.Maneuver {
 
 		internal static new void InitType(Type type) {
 			moonReturnAltitudeField = type.GetCheckedField("MoonReturnAltitude");
-			makeNodesImpl = type.GetCheckedMethod("MakeNodesImpl", BindingFlags.NonPublic | BindingFlags.Instance);
 		}
 
 		protected internal override void InitInstance(object instance) {

@@ -32,7 +32,6 @@ namespace KRPC.MechJeb.Maneuver {
 			rendezvous = type.GetCheckedField("Rendezvous");
 			lagTimeField = type.GetCheckedField("LagTime");
 			coplanar = type.GetCheckedField("Coplanar");
-			makeNodesImpl = type.GetCheckedMethod("MakeNodesImpl", BindingFlags.NonPublic | BindingFlags.Instance);
 			timeSelector = GetTimeSelectorField(type);
 		}
 

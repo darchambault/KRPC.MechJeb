@@ -25,7 +25,6 @@ namespace KRPC.MechJeb.Maneuver {
 		internal static new void InitType(Type type) {
 			resonanceNumeratorField = type.GetCheckedField("ResonanceNumerator");
 			resonanceDenominatorField = type.GetCheckedField("ResonanceDenominator");
-			makeNodesImpl = type.GetCheckedMethod("MakeNodesImpl", BindingFlags.NonPublic | BindingFlags.Instance);
 			timeSelector = GetTimeSelectorField(type);
 		}
 
