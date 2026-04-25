@@ -1,7 +1,7 @@
 function BuildDefinitions() {
 	Echo "Building definitions"
 	$null = New-Item -ItemType Directory -Force -Path "output"
-	krpc-servicedefs "C:/Steam/steamapps/common/Kerbal Space Program" MechJeb ../bin/Release/KRPC.MechJeb.dll ../lib/KRPC.SpaceCenter.dll -o output/KRPC.MechJeb.json
+	krpc-servicedefs "C:/Program Files (x86)/Kerbal Space Program Dev" MechJeb ../bin/Release/KRPC.MechJeb.dll ../lib/KRPC.SpaceCenter.dll -o output/KRPC.MechJeb.json
 }
 
 function BuildClients() {
