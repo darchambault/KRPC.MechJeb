@@ -295,6 +295,11 @@ namespace KRPC.MechJeb {
 
 		private object ActiveAutopilot => this.AscentType == 0 ? this.classicAutopilot : this.pvgAutopilot;
 
+		/// <summary>
+		/// Whether the ascent autopilot is engaged. Setting this to <c>true</c> engages the autopilot
+		/// matching the current <see cref="AscentType" />; setting it to <c>false</c> disengages both.
+		/// </summary>
+		[KRPCProperty]
 		public override bool Enabled {
 			get => IsEnabled(this.classicAutopilot) || IsEnabled(this.pvgAutopilot);
 			set {
