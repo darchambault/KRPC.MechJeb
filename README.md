@@ -10,7 +10,7 @@ Are you tired of manually giving commands to your rockets? Do you want to automa
 
 1. Install [kRPC](https://krpc.github.io/krpc/getting-started.html) and [MechJeb 2](https://www.curseforge.com/kerbal/ksp-mods/mechjeb) mods.
 2. Download [latest release files](https://github.com/darchambault/KRPC.MechJeb/releases).
-3. Copy KRPC.MechJeb.dll to `Kerbal Space Program/GameData/kRPC` directory.
+3. Copy KRPC.MechJeb.dll and KRPC.MechJeb.xml to `Kerbal Space Program/GameData/kRPC` directory.
 4. If you are using Python, Lua or similar client libraries, you can start coding right away. For C-nano, C++, C# and Java, find the relevant file in the release archive and link it with your project.
 5. Happy coding!
 

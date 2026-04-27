@@ -1,3 +1,5 @@
+$env:PYTHONWARNINGS = "ignore"
+
 function BuildDefinitions() {
 	Echo "Building definitions"
 	$null = New-Item -ItemType Directory -Force -Path "output"
@@ -108,6 +110,7 @@ function BuildRelease() {
 	Echo "Building release archive"
 	$source = "output/clients"
 	Copy-Item ../bin/Release/KRPC.MechJeb.dll $source
+	Copy-Item ../bin/Release/KRPC.MechJeb.xml $source
 	Copy-Item ../CHANGELOG.md $source
 	Copy-Item ../LICENSE $source
 	Copy-Item ../README.md $source
