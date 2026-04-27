@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.1]
+### Fixed
+- `Enabled` property on **AscentAutopilot** was not exposed through kRPC after the 0.8.0 refactor
+- Updated documentation to bring it in line with 0.8.0 refactor
+- Wrapper instances became disconnected from the active vessel after a quicksave reload because the re-init trigger only watched for `FlightGlobals.ActiveVessel` reference changes; it now also re-inits when the cached `MasterMechJeb` PartModule has been destroyed
+
 ## [0.8.0]
 ### Added
 - Refactored **AscentAutopilot** for MechJeb 2.15.x; rebuilt against the new `MechJebModuleAscentSettings` / `MechJebModuleAscentBaseAutopilot` split
@@ -146,7 +152,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - **StagingController**
 - **TargetController** to get information about the current target
 
-[Unreleased]: https://github.com/darchambault/KRPC.MechJeb/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/darchambault/KRPC.MechJeb/compare/v0.8.1...HEAD
+[0.8.1]: https://github.com/darchambault/KRPC.MechJeb/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/darchambault/KRPC.MechJeb/compare/v0.7.1...v0.8.0
 [0.7.1]: https://github.com/Genhis/KRPC.MechJeb/compare/v0.7.0...v0.7.1
 [0.7.0]: https://github.com/Genhis/KRPC.MechJeb/compare/v0.6.1...v0.7.0
